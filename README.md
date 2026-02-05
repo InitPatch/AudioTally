@@ -2,7 +2,7 @@
 
 **Duration Calculator for Cubase & Nuendo**
 
-Beautiful desktop app that automatically calculates the total duration of multiple selected clips in Cubase or Nuendo.
+A small desktop app that automatically calculates the total duration of multiple selected clips in Cubase or Nuendo.
 
 ![AudioTally Logo](assets/logo.png)
 
