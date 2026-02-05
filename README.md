@@ -6,16 +6,16 @@ A small desktop app that automatically calculates the total duration of multiple
 
 ![AudioTally Logo](assets/logo.png)
 
-## ✨ Features
+## Features
 
-- ✅ **Auto-detection**: Automatically detects when you copy clips
-- 🎨 **Modern UI**: Clean interface with CustomTkinter
-- 📌 **Always-on-top**: Optional pin to keep window visible
-- 📊 **Detailed Analysis**: View individual clip durations
-- 🔊 **Multiple Sample Rates**: Support for 8kHz to 192kHz
-- 💾 **Preserves Clipboard**: Original data intact for pasting back
+- **Auto-detection**: Automatically detects when you copy clips
+- **Modern UI**: Clean interface with CustomTkinter
+- **Always-on-top**: Optional pin to keep window visible
+- **Detailed Analysis**: View individual clip durations
+- **Multiple Sample Rates**: Support for 8kHz to 192kHz
+- **Preserves Clipboard**: Original data intact for pasting back
 
-## 🚀 How to Use
+## How to Use
 
 1. Select your project sample rate in the app
 2. Select multiple clips in Cubase/Nuendo
