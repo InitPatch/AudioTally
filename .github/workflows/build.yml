@@ -1,0 +1,67 @@
+name: Build AudioTally Apps
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  build-macos:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+    
+    - name: Install dependencies
+      run: |
+        pip install py2app pillow customtkinter
+    
+    - name: Build macOS app
+      run: |
+        python setup.py py2app
+    
+    - name: Create ZIP
+      run: |
+        cd dist
+        zip -r "AudioTally-macOS.zip" "AudioTally.app"
+    
+    - name: Upload macOS artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: macos-app
+        path: dist/AudioTally-macOS.zip
+
+  build-windows:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+    
+    - name: Install dependencies
+      run: |
+        pip install pyinstaller pillow customtkinter
+    
+    - name: Build Windows executable
+      run: |
+        pyinstaller build_windows.spec
+    
+    - name: Create ZIP
+      run: |
+        cd dist
+        Compress-Archive -Path "AudioTally.exe" -DestinationPath "AudioTally-Windows.zip"
+    
+    - name: Upload Windows artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: windows-exe
+        path: dist/AudioTally-Windows.zip
